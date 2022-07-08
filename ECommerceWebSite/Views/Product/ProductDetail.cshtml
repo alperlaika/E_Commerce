@@ -1,0 +1,141 @@
+﻿@model ECommerceWebSite.Models.Products
+
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-9 padding-right">
+    <div class="product-details">
+        <!--product-details-->
+        <div class="col-sm-5">
+            <div class="view-product">
+                <img src="@Model.ProductImage" alt="">
+      
+            </div>
+
+        </div>
+        <div class="col-sm-7">
+            <div class="product-information">
+
+                <p><b>Stock Kodu: </b>@Model.ProductStock_Code </p>
+                <p><b>Stok Miktarı: </b> @Model.ProductNumber </p>
+
+                <span>
+                    <span>@Model.ProductPrice ₺</span>
+                    <label> </label>
+                    <input type="number" value="1" min="0" step="1" id="Miktar">
+                    @if (Session["user"] != null)
+                    {
+                        <button type="button" onclick="SepeteEkle()" class="btn btn-fefault cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            Sepete Ekle
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="button" onclick="GirisYapUyarisi()" class="btn btn-fefault cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            Sepete Ekle
+                        </button>
+
+                    }
+                </span>
+                @*<p><b>Stok Sayısı:</b> @Model.ProductNumber</p>*@
+
+                <input type="hidden" value="@Model.ProductID" name="ProductID" />
+                <input type="hidden" value="@Model.ProductPrice" name="ProductPrice" />
+
+
+                @if (Model.ProductAddedDate > new DateTime(2022, 01, 01))
+                {
+                    <b>Yeni Sezon</b>
+                }
+
+
+                <a href=""><img src="images/product-details/share.png" class="share img-responsive" alt=""></a>
+            </div><!--/product-information-->
+        </div>
+
+    </div><!--/product-details-->
+
+    <div class="category-tab shop-details-tab">
+        <!--category-tab-->
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+                <li><a href="#details" data-toggle="tab">Açıklama</a></li>
+                <li><a href="#companyprofile" data-toggle="tab">Kategorisi</a></li>
+             
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane fade" id="details">
+                <div class="col-sm-12">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                            
+                                
+                                <p>@Model.ProductDetails</p>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tab-pane fade" id="companyprofile">
+                <div class="col-sm-12">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                
+                                <p>@Model.Categories.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+             
+            </div>
+
+            
+
+        </div>
+    </div><!--/category-tab-->
+
+    @Html.Action("Slayt", "Home")
+
+</div>
+
+<script type="text/javascript">
+    function SepeteEkle() {
+        var productid = '@Model.ProductID';
+        var stokmiktari = @Model.ProductNumber;
+        var fiyat = @Model.ProductPrice;// sonradan kullanıcı ücreti değiştiremez böylelikle
+        var siparismiktari = $("#Miktar").val();
+
+        if (siparismiktari > stokmiktari) {
+            alert("Sipariş miktarı stok miktarından fazla olamaz.");
+        }
+        else {
+            $.ajax({
+                url: "/Product/SepeteEkle",
+                type: "POST",
+                data: { ProductID: productid, Miktar: siparismiktari, Fiyat: fiyat},
+                success: function (data) {
+                    if (data == true) {
+                        alert("Ürün Başarıyla sepete eklendi.")
+                    }
+                }
+            });
+
+        }
+
+    }
+    function GirisYapUyarisi() {
+        alert("Sepete ekleme yapabilmeniz için giriş yapınız.");
+    }
+</script>
+

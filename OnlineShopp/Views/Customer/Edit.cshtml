@@ -1,0 +1,65 @@
+﻿@model OnlineShopp.Models.Customers
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 col-sm-12">
+    <div class="container">
+        <div class="x_title">
+            <h2>Ürün Ekle</h2>
+
+            <form method="post">
+
+
+                <div class="form-group">
+
+                    <label>Adı</label>
+                    <input type="text" name="CustomerName" id="CustomerName" value="@Model.CustomerName" class="form-control" required />
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Soyadı</label>
+                    <input type="text" name="CustomerSurname" id="CustomerSurname" value="@Model.CustomerSurname" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+
+                    <label>Eposta</label>
+                    <input type="text" name="Email" id="Email" value="@Model.Email" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+
+                    <label>Doğum Tarihi</label>
+                    <input type="datetime" name="BirthDate" id="BirthDate"  value="@Model.BirthDate" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+
+                    <label>Şifre</label>
+                    <input type="number" name="Password" id="Password" value="@Model.Password" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+
+                    <label>Teslimat Adresi</label>
+                    <input type="text" name="DeliveryAddress" id="DeliveryAddress" value="@Model.DeliveryAddress" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+
+                    <label>Fatura Adresi</label>
+                    <input type="text" name="BillingAddress" id="BillingAddress" value="@Model.BillingAddress" class="form-control" required />
+                </div>
+
+
+                <button type="submit" class="btn btn-primary" id="AddProduct">Kaydet</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>

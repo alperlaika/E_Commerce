@@ -1,0 +1,170 @@
+﻿@model OnlineShopp.Models.Situation.situationmodel
+
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    @*<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>*@
+    @*<script src="~/Content/js/jquery-1.4.2.min.js"></script>*@
+    <script src="~/Content/js/jquery-ui-1.8.1.custom.min.js"></script>
+    <script src="~/Content/js/main.js"></script>
+
+</head>
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+    </div>
+
+    <!-- Content Row -->
+    <div class="row">
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Sipariş Sayısı
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.ordernumber</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Müşteri Sayısı
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.customernumber</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Earnings (Monthly) Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Ürün Sayısı
+                            </div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">@Model.productnumber</div>
+                                </div>
+                                <div class="col">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-warning shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Sipariş Bekleyen
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.pendingorder</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-6 m-auto">
+            <div style="float:right;width:700px;height:300px;">
+                <canvas id="myChart"></canvas>
+            </div>
+
+            <script>
+                src = "https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" >
+
+            </script>
+
+            <script>
+
+
+
+
+                                        var ctx = document.getElementById('myChart').getContext('2d');
+                    var chart = new Chart(ctx, {
+                        // The type of chart we want to create
+                        type: 'pie',
+
+                        // The data for our dataset
+                        data: {
+                            labels: ['sipariş sayısı', ' müşteri sayısı', 'ürün sayısı', 'sipariş bekleyen'],
+                            datasets: [{
+                                label: 'Veri Grafiği',
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+
+                                ],
+                                borderColor: [
+                                    'rgba(255, 99, 132, 1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 159, 64, 1)'
+                                ],
+                                  data: [@Model.ordernumber,@Model.customernumber,@Model.productnumber,@Model.pendingorder]
+                            }]
+                        },
+
+                        // Configuration options go here
+                        options: {}
+                    });
+
+
+
+
+            </script>
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+
+</div>

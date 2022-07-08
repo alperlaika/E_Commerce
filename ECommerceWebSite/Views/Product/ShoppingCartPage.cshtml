@@ -1,0 +1,9 @@
+﻿@model ECommerceWebSite.Models.UserShoppingCart
+@{
+    ViewBag.Title = "ShoppingCartPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    @Html.Partial("cartproduct", "Product");@*  Product controllerın içindeki cartproduct ta fit *@
+</div>

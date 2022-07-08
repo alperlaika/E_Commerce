@@ -1,0 +1,97 @@
+﻿@model ECommerceWebSite.Models.UserShoppingCart
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Ürün</th>
+                        <th>Miktar</th>
+                        <th class="text-center">Birim Fiyatı</th>
+                        <th class="text-center">Toplam</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    @foreach (var item in Model.userShoppingCartDetails)
+                    {  //sepetdetayın içindeki ürünleri 
+
+                    <tr>
+                        <td class="col-sm-8 col-md-6">
+                            <div class="media">
+                                @if (item.Product.ProductImage != null && item.Product.ProductImage != "")
+                                {
+
+                                    <a class="thumbnail pull-left" href="#"> <div id="ProductImage" style="background-image:url(@item.Product.ProductImage);background-position:center;background-size:contain;background-repeat:no-repeat;width:72px;height:72px;"></div></a>
+
+                                }
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#">@item.Product.ProductName</a></h4>
+                                    <h5 class="media-heading"> by <a href="#">@item.Product.ProductStock_Code</a></h5>
+                                    <span>Status: </span><span class="text-success"><strong>@item.Product.Categories</strong></span>
+                                </div>
+                            </div>
+                            </td>
+                            <td class="col-sm-1 col-md-1" style="text-align: center">
+                                <input type="number" class="form-control" id="exampleInputEmail1" value="@item.Amount">
+                            </td>
+                            <td class="col-sm-1 col-md-1 text-center"><strong>@item.Product.ProductPrice TL</strong></td>
+                            <td class="col-sm-1 col-md-1 text-center"><strong>@item.Total</strong></td>
+                            <td class="col-sm-1 col-md-1">
+                                <button type="button" class="btn btn-danger">
+                                    <span class="glyphicon glyphicon-remove"></span> Sil
+                                </button>
+                            </td>
+                        </tr>
+
+                    }
+
+
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>Ara Toplam</h5></td>
+                        <td class="text-right"><h5><strong>@Model.SubTotal() TL</strong></h5></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h5>KDV</h5></td>
+                        <td class="text-right"><h5><strong>@Model.KDV() TL</strong></h5></td>
+                    </tr> 
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Genel Toplam</h3></td>
+                        <td class="text-right"><h3><strong>@Model.TotalCost()</strong></h3></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                            <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-shopping-cart"></span> ALışverişe Devam Et
+                            </button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-success">
+                                ALışverişi Tamamla <span class="glyphicon glyphicon-play"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

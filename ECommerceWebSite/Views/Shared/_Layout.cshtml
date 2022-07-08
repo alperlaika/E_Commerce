@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>AnaSayfa | Öğrenciİşi </title>
+
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Content/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/Content/css/price-range.css" rel="stylesheet">
+    <link href="/Content/css/animate.css" rel="stylesheet">
+    <link href="/Content/css/main.css" rel="stylesheet">
+    <link href="/Content/css/responsive.css" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="~/Content/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/Content/images/ico/apple-touch-icon-57-precomposed.png">
+    <script src="~/Content/js/jquery.js"></script>
+
+</head>
+
+<body>
+    @Html.Partial("_TopMenu")
+    @Html.Partial("_Slayt1")
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                @Html.Partial("_LeftMenu")
+                @RenderBody()
+
+            </div>
+        </div>
+    </section>
+
+
+    @Html.Partial("_FooterMenu")
+
+
+
+    <div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Giriş Yap</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Kapat">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+
+
+                    <div class="md-form mb-5">
+                        <div class="input-group">
+                            <span class="input-group-addon">  <i class="fas fa-user prefix grey-text"></i></span>
+                            <input type="email" cid="form3" class="form-control validate" name="Email" id="Email" placeholder="E-Posta" />
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="md-form mb-4">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fas fa-envelope prefix grey-text"></i></span>
+                            <input type="Password" class="form-control validate" name="Password" id="Password" placeholder="Şifreniz" for="form2" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="md-form mb-3">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" onclick="GirisYap()" class="btn btn-danger">Giriş Yap <i class="fas fa-paper-plane-o ml-1"></i></button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function GirisYap() {
+            var email = $("#Email").val();
+            var password = $("#Password").val();
+            if (email != "" && password != "") {
+                $.ajax({
+                    url: "/Login/Login",
+                    type: "POST",
+                    data: { email: email, password: password },
+                    success: function (data) {
+                        if (data == true) {
+                            window.location.href = '/Home/Index/';
+                        }
+                        else {
+                            alert("Kullanıcı adı veya şifre hatalı.");
+                        }
+                    }
+                });
+            }
+            else {
+                alert("Lütfen alanları doldurunuz.");
+            }
+        }
+        function CikisYap() {
+            $.ajax({
+                url: "/Login/SignOut",
+                type: "POST",
+                success: function (data) {
+                    if (data == true) {
+                        window.location.href = '/Home/Index/';
+                    }
+                    else {
+                        alert("Çıkış Yapılamadı.");
+                    }
+                }
+            });
+        }
+    </script>
+
+
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/jquery.scrollUp.min.js"></script>
+    <script src="~/Content/js/price-range.js"></script>
+    <script src="~/Content/js/jquery.prettyPhoto.js"></script>
+    <script src="~/Content/js/main.js"></script>
+
+
+    <a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;"><i class="fa fa-angle-up"></i></a>
+
+</body>
+</html>

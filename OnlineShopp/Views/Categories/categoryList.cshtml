@@ -1,0 +1,68 @@
+﻿@model List<OnlineShopp.Models.Categories>
+
+@{
+    ViewBag.Title = "categoryList";
+ 
+}
+<head>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script type="text/javascript" src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+</head>
+<div class="card-body">
+
+    <div class="table-responsive">
+
+        <table id="category" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Kategori İsmi</th>
+
+                    <th>Kategori Sil</th>
+
+                    <th>Kategori Düzenle</th>
+
+
+                </tr>
+            </thead>
+            @*@{
+                    int a = 1;
+                }*@
+            @foreach (var item in Model)
+            {
+                <tbody>
+
+                    <tr>
+                        <td>@item.CategoryID</td>
+                        <td>@item.Description</td>
+                        <td>
+                            <a class="btn btn-primary" href="/Categories/CategoryDelete/@item.CategoryID" onclick="return confirm('Kategoriyi Silmek İstediğinizden Emin Mısınız?'")>Sil</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="/Categories/Add/@item.CategoryID">Düzenle</a>
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            }
+
+
+
+
+        </table>
+
+    </div>
+
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#category').DataTable();
+    });
+</script>
+
+

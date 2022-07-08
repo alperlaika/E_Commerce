@@ -1,0 +1,57 @@
+﻿@using OnlineShopp.Models
+@model List<SiparisSatirlarim>
+@{
+    ViewBag.Title = "OrderDetailList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10 col-md-offset-1">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Ürün</th>
+                                    <th>Miktar</th>
+                                    <th>Fiyat</th>
+                                    <th>Ürün Birim Fiyat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="col-sm-8 col-md-6">
+                                            <div class="media">
+                                                <a class="thumbnail pull-left" href="#"> <img class="media-object" src="@item.UrunResim" style="width: 72px; height: 72px;"> </a>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">@item.UrunIsmi</h4>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                                            @item.OrderDetailsAmount
+                                        </td>
+                                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                                            @item.OrderDetailsPrice
+                                        </td>
+                                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                                            @item.UrunBirimFiyat
+                                        </td>
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+

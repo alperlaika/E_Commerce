@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="E_CommerceModelStoreContainer" CdmEntityContainer="E_CommerceEntities">
+    <EntitySetMapping Name="AboutUs">
+      <EntityTypeMapping TypeName="E_CommerceModel.AboutUs">
+        <MappingFragment StoreEntitySet="AboutUs">
+          <ScalarProperty Name="AboutUs_Topic" ColumnName="AboutUs_Topic" />
+          <ScalarProperty Name="AboutUs_Keyword" ColumnName="AboutUs_Keyword" />
+          <ScalarProperty Name="AboutUsContent" ColumnName="AboutUsContent" />
+          <ScalarProperty Name="AboutUsTitle" ColumnName="AboutUsTitle" />
+          <ScalarProperty Name="AboutUsID" ColumnName="AboutUsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CargoCompany">
+      <EntityTypeMapping TypeName="E_CommerceModel.CargoCompany">
+        <MappingFragment StoreEntitySet="CargoCompany">
+          <ScalarProperty Name="TaxNumber" ColumnName="TaxNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="CargoAddress" ColumnName="CargoAddress" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="CargoID" ColumnName="CargoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="E_CommerceModel.Categories">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="TopCategoryID" ColumnName="TopCategoryID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="E_CommerceModel.Customers">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
+          <ScalarProperty Name="DeliveryAddress" ColumnName="DeliveryAddress" />
+          <ScalarProperty Name="OrderHistoryID" ColumnName="OrderHistoryID" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="ShoppingCartID" ColumnName="ShoppingCartID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="CustomerPhoneNumber" ColumnName="CustomerPhoneNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CustomerUserName" ColumnName="CustomerUserName" />
+          <ScalarProperty Name="CustomerSurname" ColumnName="CustomerSurname" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeliveryInformation">
+      <EntityTypeMapping TypeName="E_CommerceModel.DeliveryInformation">
+        <MappingFragment StoreEntitySet="DeliveryInformation">
+          <ScalarProperty Name="DeliveryContent" ColumnName="DeliveryContent" />
+          <ScalarProperty Name="DeliveryDescription" ColumnName="DeliveryDescription" />
+          <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login">
+      <EntityTypeMapping TypeName="E_CommerceModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MailSetting">
+      <EntityTypeMapping TypeName="E_CommerceModel.MailSetting">
+        <MappingFragment StoreEntitySet="MailSetting">
+          <ScalarProperty Name="Mail_Email_Password" ColumnName="Mail_Email_Password" />
+          <ScalarProperty Name="Mail_Email" ColumnName="Mail_Email" />
+          <ScalarProperty Name="Mail_Sender" ColumnName="Mail_Sender" />
+          <ScalarProperty Name="Smpt_port" ColumnName="Smpt_port" />
+          <ScalarProperty Name="Smtp_server" ColumnName="Smtp_server" />
+          <ScalarProperty Name="Sender_Info" ColumnName="Sender_Info" />
+          <ScalarProperty Name="MailSettingsID" ColumnName="MailSettingsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MailSubscriber">
+      <EntityTypeMapping TypeName="E_CommerceModel.MailSubscriber">
+        <MappingFragment StoreEntitySet="MailSubscriber">
+          <ScalarProperty Name="Mail_Email" ColumnName="Mail_Email" />
+          <ScalarProperty Name="MailSubscriberID" ColumnName="MailSubscriberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MembershipAgreement">
+      <EntityTypeMapping TypeName="E_CommerceModel.MembershipAgreement">
+        <MappingFragment StoreEntitySet="MembershipAgreement">
+          <ScalarProperty Name="Member_Topic" ColumnName="Member_Topic" />
+          <ScalarProperty Name="Member_Keyword" ColumnName="Member_Keyword" />
+          <ScalarProperty Name="MembershipAgreementTitle" ColumnName="MembershipAgreementTitle" />
+          <ScalarProperty Name="MembershipAgreementContent" ColumnName="MembershipAgreementContent" />
+          <ScalarProperty Name="MembershipAgreementID" ColumnName="MembershipAgreementID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="E_CommerceModel.OrderDetails">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="OrderDetailsOrderID" ColumnName="OrderDetailsOrderID" />
+          <ScalarProperty Name="OrderDetailsAmount" ColumnName="OrderDetailsAmount" />
+          <ScalarProperty Name="OrderDetailsPrice" ColumnName="OrderDetailsPrice" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="OrderDetailsID" ColumnName="OrderDetailsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderHistory">
+      <EntityTypeMapping TypeName="E_CommerceModel.OrderHistory">
+        <MappingFragment StoreEntitySet="OrderHistory">
+          <ScalarProperty Name="OrderHistoryDetails" ColumnName="OrderHistoryDetails" />
+          <ScalarProperty Name="OrderHistoryDescription" ColumnName="OrderHistoryDescription" />
+          <ScalarProperty Name="OrderHistoryID" ColumnName="OrderHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="E_CommerceModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderDeliveryAdress" ColumnName="OrderDeliveryAdress" />
+          <ScalarProperty Name="OrderTotalPrice" ColumnName="OrderTotalPrice" />
+          <ScalarProperty Name="OrderCargoID" ColumnName="OrderCargoID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="ParcelTracking" ColumnName="ParcelTracking" />
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="DateOfSale" ColumnName="DateOfSale" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="E_CommerceModel.OrderStatus">
+        <MappingFragment StoreEntitySet="OrderStatus">
+          <ScalarProperty Name="OrderStatusDetails" ColumnName="OrderStatusDetails" />
+          <ScalarProperty Name="OrderStatusDescription" ColumnName="OrderStatusDescription" />
+          <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethod">
+      <EntityTypeMapping TypeName="E_CommerceModel.PaymentMethod">
+        <MappingFragment StoreEntitySet="PaymentMethod">
+          <ScalarProperty Name="PaymentMethodDetails" ColumnName="PaymentMethodDetails" />
+          <ScalarProperty Name="PaymentMethodDescription" ColumnName="PaymentMethodDescription" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrivacyPolicy">
+      <EntityTypeMapping TypeName="E_CommerceModel.PrivacyPolicy">
+        <MappingFragment StoreEntitySet="PrivacyPolicy">
+          <ScalarProperty Name="Privacy_Topic" ColumnName="Privacy_Topic" />
+          <ScalarProperty Name="PrivacyPolicyContent" ColumnName="PrivacyPolicyContent" />
+          <ScalarProperty Name="Privacy_Keyword" ColumnName="Privacy_Keyword" />
+          <ScalarProperty Name="PrivacyPolicyTitle" ColumnName="PrivacyPolicyTitle" />
+          <ScalarProperty Name="PrivacyPolicyID" ColumnName="PrivacyPolicyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="E_CommerceModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="DeliveryID" ColumnName="DeliveryID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="ProductAddedDate" ColumnName="ProductAddedDate" />
+          <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+          <ScalarProperty Name="ProductStock_Code" ColumnName="ProductStock_Code" />
+          <ScalarProperty Name="ProductDetails" ColumnName="ProductDetails" />
+          <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnConditions">
+      <EntityTypeMapping TypeName="E_CommerceModel.ReturnConditions">
+        <MappingFragment StoreEntitySet="ReturnConditions">
+          <ScalarProperty Name="Return_Topic" ColumnName="Return_Topic" />
+          <ScalarProperty Name="Return_Keyword" ColumnName="Return_Keyword" />
+          <ScalarProperty Name="ReturnConditionsContent" ColumnName="ReturnConditionsContent" />
+          <ScalarProperty Name="ReturnConditionsTitle" ColumnName="ReturnConditionsTitle" />
+          <ScalarProperty Name="ReturnConditionsID" ColumnName="ReturnConditionsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seos">
+      <EntityTypeMapping TypeName="E_CommerceModel.Seos">
+        <MappingFragment StoreEntitySet="Seos">
+          <ScalarProperty Name="Seos_Keyword" ColumnName="Seos_Keyword" />
+          <ScalarProperty Name="SeosMap" ColumnName="SeosMap" />
+          <ScalarProperty Name="Seos_Topic" ColumnName="Seos_Topic" />
+          <ScalarProperty Name="SeosTitle" ColumnName="SeosTitle" />
+          <ScalarProperty Name="SeosID" ColumnName="SeosID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteSettings">
+      <EntityTypeMapping TypeName="E_CommerceModel.SiteSettings">
+        <MappingFragment StoreEntitySet="SiteSettings">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="WhatsApp" ColumnName="WhatsApp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="SiteSettingsID" ColumnName="SiteSettingsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SocialMedia">
+      <EntityTypeMapping TypeName="E_CommerceModel.SocialMedia">
+        <MappingFragment StoreEntitySet="SocialMedia">
+          <ScalarProperty Name="twitter" ColumnName="twitter" />
+          <ScalarProperty Name="YouTube" ColumnName="YouTube" />
+          <ScalarProperty Name="instagram" ColumnName="instagram" />
+          <ScalarProperty Name="facebook" ColumnName="facebook" />
+          <ScalarProperty Name="SocialMediaID" ColumnName="SocialMediaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="E_CommerceModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TopCategory">
+      <EntityTypeMapping TypeName="E_CommerceModel.TopCategory">
+        <MappingFragment StoreEntitySet="TopCategory">
+          <ScalarProperty Name="TopCategoryDetails" ColumnName="TopCategoryDetails" />
+          <ScalarProperty Name="TopCategoryName" ColumnName="TopCategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="TopCategoryID" ColumnName="TopCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShoppingCart">
+      <EntityTypeMapping TypeName="E_CommerceModel.ShoppingCart">
+        <MappingFragment StoreEntitySet="ShoppingCart">
+          <ScalarProperty Name="ShoppingCartStatus" ColumnName="ShoppingCartStatus" />
+          <ScalarProperty Name="ShoppingCartCustomerID" ColumnName="ShoppingCartCustomerID" />
+          <ScalarProperty Name="ShoppingCartTotal" ColumnName="ShoppingCartTotal" />
+          <ScalarProperty Name="ShoppingCartAmount" ColumnName="ShoppingCartAmount" />
+          <ScalarProperty Name="ShoppingCartProductID" ColumnName="ShoppingCartProductID" />
+          <ScalarProperty Name="ShoppingCartID" ColumnName="ShoppingCartID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

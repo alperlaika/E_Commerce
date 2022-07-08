@@ -1,0 +1,387 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+
+    <script src="~/Scripts/toastr.min.js"></script>
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.6.3.min.js"></script>
+
+</head>
+<div class="row p-2">
+
+    <div class="col-md-6">
+
+        <div class="container table-bordered table-light">
+
+            <br />
+            <br />
+
+            <form method="post" action="seo">
+                <h3>Seo Ayarları</h3>
+                @foreach (var item in ViewBag.seo)
+                {
+
+
+
+                    <div class="form-group row">
+
+                        <lable class="">ID</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" disabled="disabled" value="@item.SeosID" name="" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <lable class="">Başlık</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Başlık" value="@item.SeosTitle" name="SeosTitle" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <lable class="">Topic</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Topic" value="@item.Seos_Topic" name="Seos_Topic" class="form-control" />
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+
+                        <lable class="">Anahtar Kelime</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Anahtar Kelime" value="@item.Seos_Keyword" name="Seos_Keyword" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <lable class="">Harita</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Harita" value="@item.SeosMap" name="SeosMap" class="form-control" />
+
+                        </div>
+
+                    </div>
+                    <div class="In_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-9 offset-md-3 ">
+
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <button type="reset" class="btn btn-primary">Temizle</button>
+                            <button type="button" class="btn btn-danger">İptal</button>
+
+
+                        </div>
+
+                    </div>
+                }
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="container table-bordered table-light">
+
+            <br />
+            <br />
+
+            <form method="post" action="socialmedia">
+                <h3>Sosyal Medya Ayarları</h3>
+                @foreach (var item in ViewBag.socialmedias)
+                {
+
+
+
+                    <div class="form-group row">
+
+                        <lable class="">ID</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" disabled="disabled" value="@item.SocialMediaID" name="" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <lable class="">facebook</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Başlık" value="@item.facebook" name="facebook" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <lable class="">instagram</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Topic" value="@item.instagram" name="instagram" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <lable class="">YouTube</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="YouTube" value="@item.YouTube" name="YouTube" class="form-control" />
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+
+                        <lable class="">twitter</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="twitter" value="@item.twitter" name="twitter" class="form-control" />
+
+                        </div>
+
+                    </div>
+                    <div class="In_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-9 offset-md-3 ">
+
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <button type="reset" class="btn btn-primary">Temizle</button>
+                            <button type="button" class="btn btn-danger">İptal</button>
+
+
+                        </div>
+
+                    </div>
+
+                }
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="container table-bordered table-light">
+
+            <br />
+            <br />
+
+            <form method="post" action="contact">
+                <h3> İletişim Ayarları</h3>
+                @foreach (var item in ViewBag.contact)
+                {
+
+
+
+                    <div class="form-group row">
+
+                        <lable class="">ID</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" disabled="disabled" value="@item.SiteSettingsID" name="" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <lable class="">PhoneNumber</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Başlık" value="@item.PhoneNumber" name="PhoneNumber" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group row">
+
+                        <lable class="">WhatsApp</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="WhatsApp" value="@item.WhatsApp" name="WhatsApp" class="form-control" />
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+
+                        <lable class="">Adres</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Address" value="@item.Address" name="Address" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <lable class="">Email</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Email" value="@item.Email" name="Email" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="In_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-9 offset-md-3 ">
+
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <button type="reset" class="btn btn-primary">Temizle</button>
+                            <button type="button" class="btn btn-danger">İptal</button>
+
+
+                        </div>
+
+                    </div>
+
+                }
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="container table-bordered table-light">
+
+            <br />
+            <br />
+
+            <form method="post" action="mailsettings">
+                <h3>Mail Ayarları</h3>
+                @foreach (var item in ViewBag.mailsettings)
+                {
+
+
+
+                    <div class="form-group row">
+
+                        <lable class="">ID</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" disabled="disabled" value="@item.MailSettingsID" name="" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group row">
+
+                        <lable class="">Gönderen Bilgisi</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Smtp_server" value="@item.Sender_Info" name="Sender_Info" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group row">
+
+                        <lable class="">Smtp_server</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Smtp_server" value="@item.Smtp_server" name="Smtp_server" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <lable class="">Smpt_port</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Smpt_port" value="@item.Smpt_port" name="Smpt_port" class="form-control" />
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+
+                        <lable class="">Mail_Gönderici</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Mail_Sender" value="@item.Mail_Sender" name="Mail_Sender" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <lable class="">Eposta</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Mail_Email" value="@item.Mail_Email" name="Mail_Email" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-group row">
+
+                        <lable class="">Eposta_Şifresi</lable>
+                        <div class="col-md-9 col-sm-9">
+                            <input type="text" placeholder="Mail_Email_Password" value="@item.Mail_Email_Password" name="Mail_Email_Password" class="form-control" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="In_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-9 offset-md-3 ">
+
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                            <button type="reset" class="btn btn-primary">Temizle</button>
+                            <button type="button" class="btn btn-danger">İptal</button>
+
+
+                        </div>
+
+                    </div>
+
+
+                }
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+
+    @if (TempData["result"] != null && TempData["result"].ToString() == "1")
+    {
+        <script type="text/javascript">
+            toastr["info"]("Kaydetme İşleminiz Başarılı Bir Şekilde Gerçekleştirilmiştir!", "Message")
+
+        </script>
+
+    }
+
+</div>
+

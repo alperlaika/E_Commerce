@@ -1,0 +1,41 @@
+﻿@using OnlineShopp.Models;
+@model Categories
+@{
+    ViewBag.Title = "SubCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-sm-12">
+        <div class="container">
+
+            <label>Kategori</label>
+
+            <br />
+            <form method="post">
+
+                <div>
+
+                    @Html.DropDownList("TopCategoryID", (List<SelectListItem>)ViewBag.category, htmlAttributes: new { @class = "form-control" })
+
+                </div>
+
+                <br />
+                <input class="col-4" type="text" name="CategoryID" style="display:none;" value="@Model.CategoryID" />
+
+                <label>Alt Kategoriler </label>
+                <br />
+                <input class="col-4" type="text" name="Description" />
+                <br />
+                <br />
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+
+            </form>
+            @*@Html.Action("categoryList", "Categories");*@
+
+        </div>
+
+    </div>
+
+</div>
+

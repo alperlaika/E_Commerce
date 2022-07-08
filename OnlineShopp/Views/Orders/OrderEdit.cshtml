@@ -1,0 +1,51 @@
+﻿@using OnlineShopp.Models
+@model Orders
+@{
+    ViewBag.Title = "OrderEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="container">
+            <form method="post" action="~/Orders/OrderEditt">
+                <div class="x_title">
+                    <h2>Sipariş Düzenle</h2>
+                    <input name="OrderID" id="OrderID" value="@Model.OrderID" style="display:none;" type="text" />
+                    <input name="DateOfSale" id="DateOfSale" value="@Model.DateOfSale" style="display:none;" type="datetime" />
+                    <input name="CustomerID" id="CustomerID" value="@Model.CustomerID" style="display:none;" type="text" />
+                    <input name="PaymentMethodID" id="PaymentMethodID" value="@Model.PaymentMethodID" style="display:none;" type="text" />
+                    <input name="OrderCargoID" id="OrderCargoID" value="@Model.OrderCargoID" style="display:none;" type="text" />
+                    <input name="OrderTotalPrice" id="OrderTotalPrice" value="@Model.OrderTotalPrice" style="display:none;" type="text" />
+                    <input name="OrderDeliveryAddress" id="OrderDeliveryAddress" value="@Model.OrderDeliveryAdress" style="display:none;" type="text" />
+
+
+                    <div class="form-group">
+                        <label> Kargo Takip Kodu</label>
+                        <input class="form-control" name="ParcelTracking" id="ParcelTracking" value="@Model.ParcelTracking" type="text" />
+                    </div>
+
+                    <div class="form-group">
+                        <label> Sipariş Durumu</label>
+                        <select id="OrderStatusID" name="OrderStatusID" class="form-control">
+                            @foreach (var item in ViewBag.SipDurum)
+                            {
+                                if (Model.OrderStatusID == item.OrderStatusID)
+                                {
+                                    <option selected value="@item.OrderStatusID">@item.OrderStatusDescription</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OrderStatusID">@item.OrderStatusDescription</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <hr />
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

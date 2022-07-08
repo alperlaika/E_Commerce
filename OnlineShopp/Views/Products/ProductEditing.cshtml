@@ -1,0 +1,58 @@
+﻿@model OnlineShopp.Models.Products
+@{
+    ViewBag.Title = "ProductEditing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-2 col-sm-12">
+
+        <div class="container">
+
+            <form method="post">
+                @*<div class="form-group">
+                        <label>Ürün Adi</label>
+                       <img src="http://localhost:54503/\content\\images\@Model.ProductImage.Split(';')[0]" alt="@Model.ProductName" style="height:200px; width:250px" class="avatar img-circle img-thumbnail"/>
+                    </div>*@
+                <div class="form-group">
+                    <label>Ürün Adi</label>
+                    <input type="text" name="ProductName" value="@Model.ProductName" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Kategori</label>
+                    @Html.DropDownList("VariantID", (List<SelectListItem>)ViewBag.category, htmlAttributes: new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Kategori</label>
+                    @Html.DropDownList("CategoryID", (List<SelectListItem>)ViewBag.variant, htmlAttributes: new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Fiyati</label>
+                    <input type="text" name="ProductPrice" value="@Model.ProductPrice" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Stok Kodu</label>
+                    <input type="text" name="ProductStock_Code" value="@Model.ProductStock_Code" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Ürün Adeti</label>
+                    <input type="text" name="ProductNumber" value="@Model.ProductNumber" class="form-control" required />
+                </div>
+
+                <div class="form-group">
+                    <label>Ürün Detayi</label>
+                    <textarea class="form-control" name="ProductDetails" rows="5">@Model.ProductDetails</textarea>
+                </div>
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+

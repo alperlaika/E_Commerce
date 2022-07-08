@@ -1,0 +1,123 @@
+﻿@model ECommerceWebSite.Models.Customers
+
+@{
+    Layout = null;
+}
+@*<div class="panel panel-default">
+        <div class="panel-heading">HESAP <i class="fa fa-link fa-1x"></i></div>
+        <div class="car"><a href="/User/Edit/@Session["user"]"></a>Üyelik Bilgileri</div>
+    </div>*@
+<head>
+
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Content/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/Content/css/price-range.css" rel="stylesheet">
+    <link href="/Content/css/animate.css" rel="stylesheet">
+    <link href="/Content/css/main.css" rel="stylesheet">
+    <link href="/Content/css/responsive.css" rel="stylesheet">
+
+
+
+    <link rel="shortcut icon" href="~/Content/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/Content/images/ico/apple-touch-icon-57-precomposed.png">
+    <script src="~/Content/js/jquery.js"></script>
+</head>
+<div>
+
+    @Html.Partial("_TopMenu")
+</div>
+
+<div class="container">
+    <div class="row">
+        @*<div class="col-md-3 ">
+            <div class="list-group ">
+                <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
+            </div>
+        </div>*@
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Profiliniz</h4>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form>
+                                <input style="display:none;" name="CustomerID" value="@Model.CustomerID" id="CustomerID"/>
+                                <div class="form-group row">
+                                    <label for="CustomerUserName" class="col-4 col-form-label">Kullanıcı Adınız*</label>
+                                    <div class="col-8">
+                                        <input id="CustomerUserName" name="CustomerUserName" value="@Model.CustomerUserName" placeholder="Username" class="form-control here" required="required" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="CustomerName" class="col-4 col-form-label">Adınız</label>
+                                    <div class="col-8">
+                                        <input id="CustomerName" name="CustomerName" placeholder="CustomerName" value="@Model.CustomerName" class="form-control here" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="CustomerSurname" class="col-4 col-form-label">Soyadınız</label>
+                                    <div class="col-8">
+                                        <input id="CustomerSurname" name="CustomerSurname" value="@Model.CustomerSurname" placeholder="Soyadınız" class="form-control here" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="Email" class="col-4 col-form-label">E-Posta*</label>
+                                    <div class="col-8">
+                                        <input id="Email" name="Email" value="@Model.Email" placeholder="E-Posta" class="form-control here" required="required" type="email">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="CustomerPhoneNumber" class="col-4 col-form-label">Telefon Numarası</label>
+                                    <div class="col-8">
+                                        <input id="CustomerPhoneNumber" name="CustomerPhoneNumber" value="@Model.CustomerPhoneNumber" placeholder="Telefon Numarası" class="form-control here" type="tel">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="BirthDate" class="col-4 col-form-label">Doğum Tarihiniz</label>
+                                    <div class="col-8">
+                                        <input id="BirthDate" name="BirthDate" value="@Model.BirthDate" placeholder="Doğum Tarihiniz" class="form-control here" type="datetime">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="DeliveryAddress" class="col-4 col-form-label">Teslimat Adresiniz</label>
+                                    <div class="col-8">
+                                        <textarea id="DeliveryAddress" value="@Model.DeliveryAddress" name="DeliveryAddress" cols="40" rows="4" class="form-control">@Model.DeliveryAddress</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="BillingAddress" class="col-4 col-form-label">Fatura Adresiniz</label>
+                                    <div class="col-8">
+                                        <textarea id="BillingAddress" name=".BillingAddress" cols="40" rows="4" value="@Model.BillingAddress" class="form-control">@Model.BillingAddress</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="Password" class="col-4 col-form-label">Şifreniz</label>
+                                    <div class="col-8">
+                                        <input id="Password" name="Password" value="@Model.Password" placeholder="Şifreniz" class="form-control here" type="password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <div class="offset-4 col-8">
+                                        <button name="submit" type="submit" class="btn btn-primary">Bilgileri Güncelle</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,153 @@
+﻿@using ECommerceWebSite.Models
+@model Customers
+@{
+    ViewBag.Title = "MemberRegistration";
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>AnaSayfa | Öğrenciİşi </title>
+    <link href="/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Content/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Content/css/prettyPhoto.css" rel="stylesheet">
+    <link href="/Content/css/price-range.css" rel="stylesheet">
+    <link href="/Content/css/animate.css" rel="stylesheet">
+    <link href="/Content/css/main.css" rel="stylesheet">
+    <link href="/Content/css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6ad0746a18.js" crossorigin="anonymous"></script>
+
+
+    <link rel="shortcut icon" href="~/Content/images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/Content/images/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+
+<div>
+
+    @Html.Partial("_TopMenu")
+</div>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="heading">Üye Kayıt</h2>
+                </div>
+                <div class="card-body">
+                    <form class="form-horizontal" method="post" action="#">
+                        <input name="CustomerID" id="CustomerID" value="@Model.CustomerID" style="display:none;" type="text" />
+
+                        <div class="form-group">
+                            <label for="CustomerName" class="cols-sm-2 control-label">Adınız: </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="CustomerName" id="CustomerName" value="@Model.CustomerName" placeholder="Adınızı Giriniz" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="CustomerSurname" class="cols-sm-2 control-label">Soyadınız: </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="CustomerSurname" id="CustomerSurname" value="@Model.CustomerSurname" placeholder="Soyadınızı Giriniz" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Email" class="cols-sm-2 control-label">Email </label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                    <input type="email" class="form-control" name="Email" id="Email" value="@Model.Email" placeholder="Email Giriniz" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="CustomerUserName" class="cols-sm-2 control-label">Kullanıcı Adı</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="CustomerUserName" id="CustomerUserName" value="@Model.CustomerUserName" placeholder="Kullanıcı Adınızı Giriniz" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password" class="cols-sm-2 control-label">Şifre</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="Password" id="Password" value="@Model.Password" placeholder="Şifrenizi Giriniz" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="CustomerPhoneNumber" class="cols-sm-2 control-label">Telefon Numarası</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                    <input type="number" class="form-control" name="CustomerPhoneNumber" id="CustomerPhoneNumber" value="@Model.CustomerPhoneNumber" placeholder="Telefon Numarası" />
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label for="BirthDate" class="cols-sm-2 control-label">Doğum Tarihiniz</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="datetime" class="form-control" name="BirthDate" id="BirthDate" value="@Model.BirthDate" placeholder="Doğum Tarihiniz" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group ">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Kayıt Ol</button>
+                        </div>
+
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @if (TempData["result"] != null && TempData["result"].ToString() == "1")
+    {
+        <script type="text/javascript">
+            toastr["info"]("Kayıt Eklendi.", "Mesaj")
+
+        </script>
+
+
+    }
+
+</div>
+
+
+<script src="~/Content/js/jquery.js"></script>
+<script src="~/Content/js/bootstrap.min.js"></script>
+<script src="~/Content/js/jquery.scrollUp.min.js"></script>
+<script src="~/Content/js/price-range.js"></script>
+<script src="~/Content/js/jquery.prettyPhoto.js"></script>
+<script src="~/Content/js/main.js"></script>

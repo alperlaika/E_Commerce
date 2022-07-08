@@ -1,0 +1,150 @@
+﻿@using OnlineShopp.Models;
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/Home/Index">
+
+        <div class="sidebar-brand-text mx-3"> ÖĞRENCİ İŞİ </div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" href="/Home/Index">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Admin Paneli</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Arayüz
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Kategoriler </span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">KATEGORİLER:</h6>
+                <a class="collapse-item" href="/Categories/Add">Kategoriler Ekle</a>
+                <a class="collapse-item" href="/Categories/SubCategory">Alt Kategoriler Ekle</a>
+                <a class="collapse-item" href="/Categories/List">Kategorileri Listele</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+    
+
+    <li class="nav-item">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#Products" aria-expanded="true" aria-controls="Products">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Ürünler</span>
+        </a>
+        <div id="Products" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">ÜRÜNLER:</h6>
+                <a class="collapse-item" href="/Products/Add">Ürünleri Ekle</a>
+                <a class="collapse-item" href="/Products/List">Ürünleri Listele</a>
+
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Customers" aria-expanded="true" aria-controls="Customers">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Müşteriler</span>
+        </a>
+        <div id="Customers" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">MÜŞTERİLER:</h6>
+
+                <a class="collapse-item" href="/Customer/List/">Müşterileri Listele </a>
+
+            </div>
+        </div>
+    </li>
+
+    
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#SiteSettings" aria-expanded="true" aria-controls="SiteSettings">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Site Ayarları</span>
+        </a>
+        <div id="SiteSettings" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">SITE AYARLARI:</h6>
+                <a class="collapse-item" href="/SiteSettings/Add">Site Ayarları</a>
+
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#ContentPages" aria-expanded="true" aria-controls="ContentPages">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>İçerikler</span>
+        </a>
+        <div id="ContentPages" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">İÇERİKLER:</h6>
+                <a class="collapse-item" href="/PrivacyPolicy/Index">Gizlilik İlkesi</a>
+                <a class="collapse-item" href="/AboutUs/Index">Hakkımızda</a>
+                <a class="collapse-item" href="/ReturnCondition/Index">İade Şartları</a>
+                <a class="collapse-item" href="/MembershipAgreement/Index">Üyelik Sözleşmesi</a>
+
+
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#OtherSettings" aria-expanded="true" aria-controls="OrderSettings">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Diğer Ayarlar</span>
+        </a>
+        <div id="OtherSettings" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">AYARLAR:</h6>
+                <a class="collapse-item" href="/Cargo/List">Kargo</a>
+                @*<a class="collapse-item" href="/PaymentMethod/Listt">Ödeme Yöntemleri</a>*@
+                <a class="collapse-item" href="/OrderStatus/List">Sipariş Durumu</a>
+
+            </div>
+        </div>
+    </li>
+
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#OrderSettings" aria-expanded="true" aria-controls="OrderSettings">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>Sipariş Ayarları</span>
+        </a>
+        <div id="OrderSettings" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">SİPARİŞLER:</h6>
+              
+                <a class="collapse-item" href="/Orders/OrderList">Sipariş Görüntüleme</a>
+
+            </div>
+        </div>
+    </li>
+
+
+
+    <!-- Sidebar Message -->
+
+
+</ul>
+
+

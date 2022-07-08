@@ -1,0 +1,57 @@
+﻿@model List<ECommerceWebSite.Models.CatProduct>
+@{
+    ViewBag.Title = "CatProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@foreach (var item in Model.Where(x => x.TopCategoryID == null))
+{
+    <div class="panel panel-default">
+        <div id="TopCategoryID_@item.CategoryID" class="panel-collapse collapse">
+            <div class="panel-body">
+                @foreach (var Subitem in Model.Where(x => x.TopCategoryID == item.CategoryID))
+                {
+                    @foreach (var productlist in Model)
+                    {
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+
+                                        @if (productlist.Products.ProductImage != null && productlist.Products.ProductImage != "")
+                                        {
+                                            <div id="ProductImage" style="background-image:url(@productlist.Products.ProductImage);background-position:center;background-size:contain;background-repeat:no-repeat;width:288px;height:350px;">
+
+                                            </div>
+                                        }
+
+                                        <h2>@productlist.Products.ProductPrice</h2>
+                                        <p>@productlist.Products.ProductName</p>
+                                        <a href="/Product/ProductDetail/@productlist.Products.ProductID" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ürünü İncele</a>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <h2>@productlist.Products.ProductPrice</h2>
+                                            <p>@item.Products.ProductName</p>
+                                            <a href="/Product/ProductDetail/@productlist.Products.ProductID" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Ürünü İncele</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+
+
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+}
+
+
+

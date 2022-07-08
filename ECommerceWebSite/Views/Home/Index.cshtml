@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@foreach (var item in ViewBag.Categories)
+{
+    <h2>@item.Description</h2>
+    <br />
+}*@
+
+
+
+<div class="col-sm-9 padding-right">
+    <div class="features_items">
+        <h2 class="title text-center">Ürünler</h2>
+        <!--features_items-->
+        @Html.Action("ProductList", "Home")
+
+    </div>
+    @Html.Action("Slayt", "Home")
+
+</div>

@@ -1,0 +1,112 @@
+﻿@model List<OnlineShopp.Models.Customers>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script type="module">
+        import { Toast } from 'bootstrap.esm.min.js'
+
+        Array.from(document.querySelectorAll('.toast'))
+            .forEach(toastNode => new Toast(toastNode))
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script type="text/javascript" src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+</head>
+<div class="card-body">
+
+    <div class="table-responsive">
+
+        <table id="customers" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    @*<th >No</th>*@    
+                    <th>Adı</th>
+                    <th>Soyadı</th>
+                    <th>Eposta</th>
+                    <th>Teslimat Tarihi</th>
+                    
+
+                    <th>Güncelle</th>
+                    <th>Sil</th>
+
+
+                </tr>
+            </thead>
+          
+            @foreach (var item in Model)
+            {
+                <tbody>
+
+                    <tr>
+                        @*<td>@item.CustomerID</td>*@
+                        <td>@item.CustomerName</td>
+                        <td>@item.CustomerSurname</td>
+                        <td>@item.Email</td>
+
+                        <td>
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop_@item.CustomerID">
+                                Details
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop_@item.CustomerID" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel_@item.CustomerID">Teslimat Adresi</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            @Html.Raw(item.DeliveryAddress)@* Detaili bu şekilde getirebiliriz*@
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </td>
+
+
+
+                        <td>
+                            <a class="btn btn-primary" href="/Customer/Edit/@item.CustomerID">Düzenle</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" href="/Customer/Delete/@item.CustomerID" onclick="return confirm('Ürünü Silmek İstediğinizden Emin Mısınız?')">Sil</a>
+                        </td>
+
+
+                    </tr>
+
+                </tbody>
+            }
+
+
+
+
+        </table>
+
+    </div>
+
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#customers').DataTable();
+    });
+</script>
+
+

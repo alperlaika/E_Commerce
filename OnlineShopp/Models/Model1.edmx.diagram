@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2e89a79bbc684e69b991911f3521a6f2" Name="Diagram1">
+        <EntityTypeShape EntityType="E_CommerceModel.AboutUs" Width="1.5" PointX="0.75" PointY="2.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.CargoCompany" Width="1.5" PointX="8.25" PointY="2.5" />
+        <EntityTypeShape EntityType="E_CommerceModel.Categories" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="E_CommerceModel.Customers" Width="1.5" PointX="6" PointY="0.75" />
+        <EntityTypeShape EntityType="E_CommerceModel.DeliveryInformation" Width="1.5" PointX="3.75" PointY="3.875" />
+        <EntityTypeShape EntityType="E_CommerceModel.Login" Width="1.5" PointX="0.75" PointY="10.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.MailSetting" Width="1.5" PointX="2.75" PointY="10.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.MailSubscriber" Width="1.5" PointX="4.75" PointY="11.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.MembershipAgreement" Width="1.5" PointX="10.75" PointY="2.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.OrderDetails" Width="1.5" PointX="8.25" PointY="10.125" />
+        <EntityTypeShape EntityType="E_CommerceModel.OrderHistory" Width="1.5" PointX="10.75" PointY="5.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.Orders" Width="1.5" PointX="10.5" PointY="9.5" />
+        <EntityTypeShape EntityType="E_CommerceModel.OrderStatus" Width="1.5" PointX="8.25" PointY="13.75" />
+        <EntityTypeShape EntityType="E_CommerceModel.PaymentMethod" Width="1.5" PointX="8.25" PointY="16.375" />
+        <EntityTypeShape EntityType="E_CommerceModel.PrivacyPolicy" Width="1.5" PointX="12.75" PointY="2.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.Products" Width="1.5" PointX="6" PointY="5.875" />
+        <EntityTypeShape EntityType="E_CommerceModel.ReturnConditions" Width="1.5" PointX="0.75" PointY="14.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.Seos" Width="1.5" PointX="2.75" PointY="14.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.ShoppingCart" Width="1.5" PointX="8.25" PointY="6.375" />
+        <EntityTypeShape EntityType="E_CommerceModel.SiteSettings" Width="1.5" PointX="12.75" PointY="5.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.SocialMedia" Width="1.5" PointX="4.75" PointY="14.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.sysdiagrams" Width="1.5" PointX="12.75" PointY="8.25" />
+        <EntityTypeShape EntityType="E_CommerceModel.TopCategory" Width="1.5" PointX="3" PointY="6.75" />
+        <AssociationConnector Association="E_CommerceModel.FK_Orders_CargoCompany" />
+        <AssociationConnector Association="E_CommerceModel.FK_Products_Categories" />
+        <AssociationConnector Association="E_CommerceModel.FK_TopCategory_Categories" />
+        <AssociationConnector Association="E_CommerceModel.FK_Orders_Customers" />
+        <AssociationConnector Association="E_CommerceModel.FK_ShoppingCart_Customers" />
+        <AssociationConnector Association="E_CommerceModel.FK_Products_DeliveryInformation" />
+        <AssociationConnector Association="E_CommerceModel.FK_OrderDetails_Products" />
+        <AssociationConnector Association="E_CommerceModel.FK_Orders_OrderDetails" />
+        <AssociationConnector Association="E_CommerceModel.FK_Orders_OrderStatus" />
+        <AssociationConnector Association="E_CommerceModel.FK_Orders_PaymentMethod" />
+        <AssociationConnector Association="E_CommerceModel.FK_ShoppingCart_Products" />
+        <AssociationConnector Association="E_CommerceModel.FK_ShoppingCart_Products1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

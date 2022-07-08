@@ -1,0 +1,369 @@
+﻿@using OnlineShopp.Models;
+@model  Products
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <style>
+        .Variant {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+            .Variant table, th, td {
+                border: 1px solid #bb4f4f;
+            }
+
+            .Variant table, th, td {
+                padding: 10px;
+                text-align: center;
+            }
+
+        #dropZone {
+            background: gray;
+            border: black dashed 3px;
+            width: 200px;
+            padding: 50px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="container">
+            <form method="post" action="~/Products/ProductAdd">
+
+                <div class="x_title">
+
+                    <h2>Ürün Ekle</h2>
+
+                    <input name="ProductID" id="ProductID" value="@Model.ProductID" style="display:none;" type="text" />
+                    <div class="form-group">
+
+                        <label> Ürün İsmi</label>
+                        <input type="text" name="ProductName" id="ProductName" value="@Model.ProductName" class="form-control" required />
+
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label> Lütfen Bir Kategori Seçin</label>
+                        @*<select id="CategoryID" name="CategoryID" onchange="VariantList()" class="form-control">*@
+                        <select id="CategoryID" name="CategoryID" class="form-control">
+                            <option value="-1" selected="selected"> Seçiniz</option>
+                            @foreach (var item in ViewBag.category)
+                            {
+                                if (Model.CategoryID == item.CategoryID)
+                                {
+                                    <option selected value="@item.CategoryID">@item.Description</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.CategoryID">@item.Description</option>
+                                }
+                            }
+                        </select>
+
+
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>Ürün Fiyatı</label>
+                        <input type="number" name="ProductPrice" id="ProductPrice" value="@Model.ProductPrice" class="form-control" required />
+                    </div>
+
+                    @*<div class="form-group">
+                            <label>Ürün Adeti</label>
+                            <input type="number" name="ProductNumber" id="ProductNumber" value="@Model.ProductNumber" class="form-control" required />
+
+                        </div>*@
+
+
+                    <div class="form-group">
+
+                        <label>Ürün Stok Kodu</label>
+                        <input type="text" name="ProductStock_Code" id="ProductStock_Code" value="@Model.ProductStock_Code" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="file" name="uploadingFiles" id="ResimAlani" />
+                        <input type="submit" id="ResimKaydet" value="Upload file" />
+                        <div id="ProductImage" style="background-image:url(@Model.ProductImage);background-position:center;background-size:contain;background-repeat:no-repeat;width:300px;height:300px;">
+                        </div>
+                        <input type="text" style="display:none;" id="ProductImageInput" name="ProductImage" value="@Model.ProductImage" />
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label>Ürün Adeti</label>
+                        <input type="number" name="ProductNumber" id="ProductNumber" value="@Model.ProductNumber" class="form-control" required />
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <input type="hidden" name="ProductAddedDate" id="ProductAddedDate" class="date" value="@Model.ProductAddedDate" required />
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Ürün Detayları</label>
+                        <textarea rows="5" name="ProductDetails" id="ProductDetails" class="form-control" value="@Model.ProductDetails" required>@Model.ProductDetails</textarea>
+
+
+                    </div>
+                    <hr />
+
+                    @*<h5>Varyant Seçiniz</h5>
+                        <div class="form-group">
+
+
+                            <select id="VariantID" name="VariantID">
+                                <option value="-1" selected="selected">Seçiniz</option>
+                            </select>
+
+                            <input type="number" id="Amount" min="0" placeholder="Adet" />
+                            <input type="button" id="AddVariant" class="btn btn-warning" value="Varyantı Ekle" />
+                            <input type="button" id="DeleteVariant" class="btn btn-danger" value="Varyantı Sil" />
+
+                        </div>
+
+                        <table class="Variant">
+
+                            <tr>
+                                <th>Silmek İçin Seçiniz</th>
+                                <th>Varyant No</th>
+                                <th>Varyant İsmi</th>
+                                <th>Adet</th>
+
+                            </tr>
+
+                        </table>*@
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@*<div class="row">
+        <div class="jumbotron">
+            <form action="~/Products/SaveUploadedFile" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm" style="width: 50px; background: none; border: none;">
+                <div class="fallback">
+                    <input name="file" type="file" multiple />
+                    <input type="submit" value="Upload" />
+                </div>
+            </form>
+        </div>
+    </div>*@
+
+<script type="text/javascript">
+    $("#ResimKaydet").click(function () {
+        event.preventDefault();
+        var data = new FormData();
+        jQuery.each(jQuery('#ResimAlani')[0].files, function (i, file) {
+            data.append('file-' + i, file);
+        });
+        $.ajax({
+            url: "/Products/SaveUploadedFile",
+            type: "POST",
+            contentType: 'multipart/form-data',
+            data: data,
+            processData: false,  // Important!
+            contentType: false,
+            cache: false,
+            success: function (result) {
+                document.getElementById("ProductImageInput").setAttribute('value', result);
+                document.getElementById("ProductImage").style.backgroundImage = "url(" + result + ")";
+            },
+            error: function (err) {
+                alert(err.statusText);
+            }
+        });
+    });
+    //$("#CategoryID").change(function () {
+    //    $('#VariantID').html("");
+    //    var seciliid = $("#CategoryID").val();
+    //    console.log(seciliid)
+    //    if (seciliid == -1) {
+    //        alert("Lütfen Kategori Seçiniz");
+
+    //    }
+    //    $.ajax({
+
+    //        url: '/Products/VariantGet',
+    //        data: { CategoryID: seciliid },
+    //        type: "GET",
+    //        success: function (result) {
+    //            $.each(result, function (i, item) {
+    //                $('#VariantID').append(`<option value="${item.VariantID}">
+    //                                   ${item.VariantDescription}
+    //                              </option>`);
+    //            });
+    //        },
+    //        error: function (result) {
+    //            alert(" Varyantlar getirilirken Hata Oluştu")
+    //        }
+    //    });
+
+    //});
+
+
+
+    $("#ProductName").blur(function () {
+        var productname = $("ProductName").val();
+        console.log(productname)
+        if (productname == "") {
+            alert("Lütfen Ürün Adını Giriniz")
+
+        }
+
+    });
+
+    //$("#ProductImage").change(function () {
+    //    ImageRead(this);
+    //    ImageDownload();
+
+    //});
+
+    //function ImageRead(input) {
+    //    if (input.files && input.files[0]) {
+    //        var reader = new FileReader();
+    //        reader.onload = function (e) {
+    //            $('#ChooseImage').attr('src', e.target.result)
+    //        }
+
+    //        reader.readAsDataURL(input.files[0]);
+
+    //    }
+    //}
+
+    //function ImageDownload() {
+
+
+    //    var fileupload = $("#ProductImage").get(0);//resmi çağırdık
+    //    var files = fileupload.files;//dosyayı aldık
+
+    //    var fileData = new FormData();
+
+    //    for (var i = 0; i < files.length; i++) {
+    //        fileData.append(files[i].name, files[i])
+
+    //    }
+
+    //    $.ajax({
+
+    //        url: '/Products/ImageDownload',
+    //        type: "POST",
+
+    //        dataFilter: fileData,
+    //        async: false,
+    //        success: function (result) {
+
+    //            image = result;
+    //            console.log(result)
+    //        },
+    //        error: function (err) {
+    //            alert(err.statusText);
+    //        }
+
+    //    });
+
+    //};
+
+    //var ProductVariant = [];
+    //var image = "";
+
+
+    //$("#AddVariant").click(function () {
+    //    console.log("test");
+    //    var variantID = $("#VariantID option:selected").val();
+    //    var variant = $("#Variant option:selected").text(); /*hata olabilir burada*/
+    //    var amount = $("#Amount").val();
+
+    //    if (amount > 0) {
+
+    //        var body = "<tr><td><input type='checkbox' name='Delete' id=" + variantID + " ></td><td> " + variantID +
+    //            "</td> <td>" + variant + "</td> <td>" + amount + "</td> </tr>";
+    //        $("table tbody").append(body); /*bodye ekleme yapacağız*/
+
+    //        ProductVariant.push({  /* Push ile listeye ekleme yapacağız */
+
+
+    //            variantID: VariantID, /* 1. yukarıda atama yaptığımmız*/  /*2. html içerisindeki atamalarımız*/
+    //            amount: amount
+
+    //        });
+
+
+
+    //    }
+
+    //});
+
+    //$("#DeleteVariant").click(function () {
+
+    //    $("table tbody").find('input[name="Delete"]').each(function () { //işaretleneni bulmak için
+    //        if ($(this).is(":checked")) {
+
+    //            var id = $(this).find();
+    //            $(this).parents("tr").remove();//parents neyin içinde aranacak değeri ne yapılacağını öğrenmek için kullanılır.
+    //        }
+    //    });
+    //});
+
+    //$("#AddProduct").click(function () {
+    //    var today = new Date();
+    //    var dd = String(today.getDate()).padStart(2, '0');
+    //    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    //    var yyyy = today.getFullYear();
+
+    //    today = dd + '.' + mm + '.' + yyyy;
+    //    var product = {
+
+    //        ProductName: $("#ProductName").val(),
+    //        CategoryID: $("#CategoryID").val(),
+    //        ProductPrice: $("#ProductPrice").val(),
+
+    //        ProductDetails: $("#ProductDetails").val(),
+    //        ProductStock_Code: $("#ProductStock_Code").val(),
+    //        ProductNumber: $("#ProductNumber").val(),
+    //        ProductAddedDate: today,
+    //        image: image,
+
+    //        ProductVariant: ProductVariant
+    //    }
+
+    //    $.ajax({
+    //        type: "POST",
+    //        url: "/Products/ProductAdd",
+    //        data: JSON.stringify(product),
+    //        contentType: "application/json;charset=utf-8",
+    //        dataType: "json",
+    //        success: function (msg) {
+    //            alert(msg);
+    //        },
+    //        error: function (msg) {
+    //            alert("Ürün Eklenirken Bir Hata Oluştu");
+    //        }
+
+    //    });
+
+    //});
+
+
+</script>
+

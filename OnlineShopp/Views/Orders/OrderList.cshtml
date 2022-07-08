@@ -1,0 +1,75 @@
+﻿@using OnlineShopp.Models;
+@model List<SiparisUst>
+@{
+    ViewBag.Title = "OrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10 col-md-offset-1">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Sipariş Tarihi</th>
+                                    <th>Müşteri Adı</th>
+                                    <th>Sipariş Durumu</th>
+                                    <th>Kargo</th>
+                                    <th>Takip Kodu</th>
+                                    <th>Ödeme Tipi</th>
+                                    <th>Sipariş Tutarı</th>
+                                    <th>Adres</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                                            @item.DateOfSale
+                                        </td>
+                                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                                            @item.KullaniciAdi @item.KullaniciSoyadi
+                                        </td>
+                                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                                            @item.OrderStatusName
+                                        </td>
+                                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                                            @item.OrderCargoName
+                                        </td>
+                                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                                            @item.ParcelTracking
+                                        </td>
+                                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                                            @item.PaymentMethodName
+                                        </td>
+                                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                                            @item.OrderTotalPrice
+                                        </td>
+                                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                                            @item.OrderDeliveryAddress
+                                        </td>
+                                        <td class="col-sm-1 col-md-1">
+                                            <a href="/Orders/OrderDetailList/@item.OrderID">Sipariş Detay</a>
+                                            <br />
+                                            <br /> 
+                                            <a href="/Orders/OrderEdit/@item.OrderID">Sipariş Düzenle</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
